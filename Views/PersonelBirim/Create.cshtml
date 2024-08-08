@@ -1,0 +1,34 @@
+﻿@model PersonelBirim
+
+<h2>Yeni Personel Birimi Ekle</h2>
+<hr />
+
+@using (Html.BeginForm("Create", "PersonelBirim", FormMethod.Post))
+{
+
+    <div class="col-md-6">
+        <label class="page-title"></label>
+        <br />
+        <input type="text" name="BirimAdi" class="yumusak-textbox" />
+
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+}
+
+<style>
+    .page-title {
+        font-size: 25px; /* Yazı boyutu */
+        line-height: 50px; /* Satır yüksekliği */
+        font-weight: 200; /* Yazı kalınlığı */
+        font-style: normal; /* Yazı stili */
+        text-align: left; /* Metin hizalaması */
+        color: #000000; /* Yazı rengi */
+        border-style: none; /* Kenarlık stili */
+    }
+
+    .yumusak-textbox {
+        border-radius: 5px; /* Kenarların yuvarlaklığını ayarlayın */
+        border: 1px solid #ccc; /* Opsiyonel: Kenar çizgisi rengi ekleyin */
+        padding: 4px; /* Opsiyonel: Giriş alanının içine dolgu ekleyin */
+    }
+</style>

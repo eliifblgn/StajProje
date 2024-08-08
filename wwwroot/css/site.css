@@ -1,0 +1,65 @@
+html {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#forms-nav a i {
+    width: 5px;
+}
+
+/* Bullseye */
+#sidebar-nav li .bi-bullseye {
+    font-size: 13px;
+    width: 21px;
+}
+
+#sidebar-nav .bi.bi-card-list {
+    font-size: 17px;
+    line-height: 0px;
+}
+#sidebar-nav .bi-box2-heart {
+    font-size: 17px;
+}
+#sidebar-nav .bi-clipboard2-check {
+    font-size: 17px;
+}
+#sidebar-nav li .bi-person-raised-hand {
+    font-size: 13px;
+    width: 21px;
+}
+
+#sidebar-nav .nav-link {
+    color: #50b5d7;
+}
+#sidebar-nav .nav-item .bi-grid {
+    color: #50b5d7;
+}
+
+#sidebar-nav .nav-item .bi-layout-text-window-reverse {
+    color: #50b5d7;
+}
+#sidebar-nav .nav-item .bi-bar-chart {
+    color: #50b5d7;
+}
+#sidebar-nav .nav-item .bi-box-arrow-in-right {
+    color: #50b5d7;
+}
+

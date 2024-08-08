@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SecKaliteDb.Models.KkdNiteligi>
+
+
+<style>
+    .table {
+        border-radius: 11px; /* Kenarları yuvarlaklaştırır */
+        border: 1px solid #000000; /* Tablo kenar rengini siyah olarak ayarlar */
+        overflow: hidden; /* Yuvarlak köşelerin kenarlarını keser */
+    }
+
+    .table th, .table td {
+        padding: 10px; /* Hücre içi boşluk */
+        border: 0px solid #000000; /* Hücre kenar rengini siyah olarak ayarlar */  
+    }
+
+</style>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Ürün Ekle</a>
+</p>
+
+<table class="table datatable">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KkdNiteligiAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KkdGrubu.KkdGrubuAdi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KkdNiteligiAdi)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.KkdGrubu.KkdGrubuAdi)
+                </td>
+                
+                <td>
+                            @* <button type="button" class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.Id">Güncelle</button> *@
+                    <a class="btn btn-outline-info" href="/KkdNiteligi/Edit/@item.Id">Güncelle</a>|
+
+                            @*  <button type="button" class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.Id">Sil</button> *@
+                    <a class="btn btn-outline-info" href="/KkdNiteligi/Delete/@item.Id" onclick="return confirm('Silmek istediğinize emin misiniz?')">Sil</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

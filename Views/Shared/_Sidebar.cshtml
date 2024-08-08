@@ -1,0 +1,109 @@
+﻿@* @using Microsoft.AspNetCore.Authorization *@
+@* @inject IAuthorizationService AuthorizationService *@
+@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
+
+@{
+    var isAdmin = User.Claims.Any(c => c.Type == "Admin" && c.Value == "True");
+}
+
+
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link " href="/Home/Index">
+                    <i class="bi bi-grid"></i>
+                    <span>Ana Sayfa</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+           
+        @if (isAdmin)
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Ortak Veriler</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/PersonelBirim/Index">
+                            <i class="bi bi-bullseye"></i><span>Birim Ekle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/BedenNumara/Index">
+                            <i class="bi bi-bullseye"></i><span>Beden/Numara Ekle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Unvan/Index">
+                            <i class="bi bi-bullseye"></i><span>Unvan Ekle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Birim/Index">
+                            <i class="bi bi-bullseye"></i><span>Envanter Birimi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/KkdNiteligi/Index">
+                            <i class="bi bi-bullseye"></i><span>Envanter Ekle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/KkdGrubu/Index">
+                            <i class="bi bi-bullseye"></i><span>Grup Ekle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Personel/Index">
+                            <i class="bi bi-person-raised-hand"></i><span>Personel Giriş</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Forms Nav -->
+
+            }
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-bar-chart"></i><span>KKD Envanter Takip</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/KkdEnvanterTakip/Index">
+                            <i class="bi bi-card-list"></i><span>Envanter Takip</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Teslimat/Index">
+                            <i class="bi bi-box2-heart"></i><span>Teslimat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Iade/Index">
+                            <i class="bi bi-clipboard2-check"></i><span>İade</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Charts Nav -->
+
+            @* 
+            <li class="nav-heading">Pages</li> *@
+
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/User/Cikis">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span>Çıkış</span>
+                </a>
+            </li><!-- End Login Page Nav -->
+
+
+        </ul>
+
+    </aside>

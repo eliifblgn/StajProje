@@ -1,0 +1,46 @@
+﻿@model List<BedenNumara>
+
+<!-- Table with stripped rows -->
+
+<style>
+    .table {
+        border-radius: 11px; /* Kenarları yuvarlaklaştırır */
+        border: 1px solid #000000; /* Tablo kenar rengini siyah olarak ayarlar */
+        overflow: hidden; /* Yuvarlak köşelerin kenarlarını keser */
+    }
+
+        .table th, .table td {
+            padding: 10px; /* Hücre içi boşluk */
+            border: 0px solid #000000; /* Hücre kenar rengini siyah olarak ayarlar */
+        }
+
+</style>
+
+  <table class="table datatable">
+        <a class="btn btn-info" href="/BedenNumara/Create">Ekle</a>
+       
+        <thead>
+            <tr>
+                <th><b>Beden Adı</b></th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            @foreach (var beden in Model)
+            {
+                <tr>
+                    <td>@beden.Beden</td>
+                    <td>
+                        <a class="btn btn-outline-info" href="/BedenNumara/Edit/@beden.Id">Güncelle</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-info" href="/BedenNumara/Delete/@beden.Id" onclick="return confirm('Silmek istediğinize emin misiniz?')">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+ 
+  </table>
+

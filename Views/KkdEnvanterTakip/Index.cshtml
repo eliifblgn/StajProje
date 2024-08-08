@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SecKaliteDb.Models.KkdEnvanterTakip>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .table {
+        border-radius: 15px; /* Kenarları yuvarlaklaştırır */
+        border: 1px solid #000000; /* Tablo kenar rengini siyah olarak ayarlar */
+        overflow: hidden; /* Yuvarlak köşelerin kenarlarını keser */
+    }
+
+        .table th, .table td {
+            padding: 10px; /* Hücre içi boşluk */
+            border: 0px solid #000000; /* Hücre kenar rengini siyah olarak ayarlar */
+        }
+
+</style>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">EKLE</a>
+</p>
+
+<table class="table datatable">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Personel.AdSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birim.BirimAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BedenNumara.Beden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KkdNiteligi.KkdNiteligiAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KkdGrubu.KkdGrubuAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeslimTarihi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personel.AdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birim.BirimAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BedenNumara.Beden)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KkdNiteligi.KkdNiteligiAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KkdGrubu.KkdGrubuAdi)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.TeslimTarihi)
+                </th>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

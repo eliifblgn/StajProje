@@ -1,0 +1,37 @@
+﻿@model KkdGrubu
+
+<h2>Yeni KKD Grubu Ekle</h2>
+<hr />
+
+
+@using (Html.BeginForm("Create", "KkdGrubu", FormMethod.Post))
+{
+
+    <div class="col-md-6">
+        <label class="page-title"></label>
+        <br />
+        <input type="text" name="KkdGrubuAdi" class="yumusak-textbox" required/>
+
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+}
+
+<style>
+    .page-title {
+        font-size: 24px; /* Yazı boyutu */
+        line-height: 50px; /* Satır yüksekliği */
+        font-weight: 200; /* Yazı kalınlığı */
+        font-style: normal; /* Yazı stili */
+        text-align: left; /* Metin hizalaması */
+        color: #000000; /* Yazı rengi */
+        border-style: none; /* Kenarlık stili */
+    }
+
+    .yumusak-textbox {
+        border-radius: 5px; /* Kenarların yuvarlaklığını ayarlayın */
+        border: 1px solid #ccc; /* Opsiyonel: Kenar çizgisi rengi ekleyin */
+        padding: 5px; /* Opsiyonel: Giriş alanının içine dolgu ekleyin */
+    }
+</style>
+
+

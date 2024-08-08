@@ -1,0 +1,37 @@
+﻿@model SecKaliteDb.Models.KkdNiteligi
+
+<h2>Niteliği Güncelle</h2>
+<hr />
+<br />
+@using (Html.BeginForm("Edit", "KkdNiteligi", FormMethod.Post))
+{
+    <style>
+        .rounded-input {
+            border-radius: 7px; /* Kenarları yuvarlaklaştırır */
+            border: 1px solid #dee2e6; /* Kenar rengini siyah olarak ayarlar */
+            padding: 5px; /* İç boşluk */
+            outline: none; /* Odaklanıldığında mavi kenarlığın görünmesini engeller */
+            width: 100%; /* Genişliği ayarlar, isteğe bağlı */
+            box-sizing: border-box; /* Padding ve border dahil toplam genişlik hesaplaması */
+        }
+
+        .form-label {
+            margin-bottom: 5px; /* Label ve input arasındaki boşluğu ayarlar */
+            display: block; /* Label'ı blok element yapar */
+        }
+    </style>
+
+    <div class="col-md-6">
+        <label>Nitelik Adı: </label>
+        <br />
+        <input type="text" name="KkdNiteligiAdi" value="@Model.KkdNiteligiAdi" class="rounded-input" />
+        <br />
+        <br />
+        @Html.DropDownListFor(model => model.KkdGrubuId, (SelectList)ViewBag.KkdGrubu, "Seçiniz...", new { @class = "form-control" })
+        <br />
+    </div>
+
+    <div class="form-group d-flex justify-content-center">
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+}

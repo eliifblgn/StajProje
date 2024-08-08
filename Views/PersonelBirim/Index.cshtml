@@ -1,0 +1,52 @@
+﻿
+<style>
+    .table {
+        border-radius: 11px; /* Kenarları yuvarlaklaştırır */
+        border: 1px solid #000000; /* Tablo kenar rengini siyah olarak ayarlar */
+        overflow: hidden; /* Yuvarlak köşelerin kenarlarını keser */
+    }
+
+        .table th, .table td {
+            padding: 10px; /* Hücre içi boşluk */
+            border: 0px solid #000000; /* Hücre kenar rengini siyah olarak ayarlar */
+        }
+
+</style>
+
+<table class="table datatable">
+
+    <a class="btn btn-info" href="/PersonelBirim/Create">Ekle</a>
+
+    <thead>
+        <tr>
+            <th>
+                <b>Birim Adı</b>
+            </th>
+
+            <th>Güncelle</th>
+            <th>Sil</th>
+            @*   <th>Ext.</th>
+            <th>City</th>
+            <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
+            <th>Completion</th> *@
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var birim in Model)
+        {
+            <tr>
+                <td>@birim.BirimAdi</td>
+
+                <td>
+                    <a class="btn btn-outline-info" href="/PersonelBirim/Edit/@birim.Id">Güncelle</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-info" href="/PersonelBirim/Delete/@birim.Id" onclick="return confirm('Birimi silmek istediğinize emin misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

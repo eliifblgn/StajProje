@@ -1,0 +1,46 @@
+﻿@model SecKaliteDb.Models.KkdNiteligi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Yeni Ürün Ekle</h2>
+<hr />
+
+<br />
+@using (Html.BeginForm("Create", "KkdNiteligi", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label asp-for="KkdNiteligiAdi" class="control-label">Ürün Adı:</label>
+                    <input asp-for="KkdNiteligiAdi" required class="form-control" />
+                    <span asp-validation-for="KkdNiteligiAdi" class="text-danger"></span>
+                </div>
+           
+                <div class="form-group col-md-6">
+                    <label asp-for="KkdGrubuId" required class="control-label">Kkd Grubu:</label>
+                    <select asp-for="KkdGrubuId" class="form-control" asp-items="ViewBag.KkdGrubuId">
+                        <option value="">Seçiniz...</option>
+                    </select>
+                    <span asp-validation-for="KkdGrubuId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-outline-info">GERİ</a>
+                <input type="submit" value="EKLE" class="btn btn-outline-info" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

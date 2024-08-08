@@ -1,0 +1,72 @@
+﻿@model Personel
+
+<h2>Personeli Güncelle</h2>
+<hr />
+<br />
+@using (Html.BeginForm("Edit", "Personel", FormMethod.Post))
+{
+    <style>
+        .rounded-input {
+            border-radius: 7px; /* Kenarları yuvarlaklaştırır */
+            border: 1px solid #dee2e6; /* Kenar rengini siyah olarak ayarlar */
+            padding: 5px; /* İç boşluk */
+            outline: none; /* Odaklanıldığında mavi kenarlığın görünmesini engeller */
+            width: 100%; /* Genişliği ayarlar, isteğe bağlı */
+            box-sizing: border-box; /* Padding ve border dahil toplam genişlik hesaplaması */
+        }
+
+        .form-label {
+            margin-bottom: 5px; /* Label ve input arasındaki boşluğu ayarlar */
+            display: block; /* Label'ı blok element yapar */
+        }
+    </style>
+
+    <div class="col-md-6">
+        <label>Adı: </label>
+        <br />
+        <input type="text" name="Adi" value="@Model.Adi" class="rounded-input" />
+        <br />
+        <br />
+        <label>Soyadı:</label>
+        <br />
+        <input type="text" name="Soyadi" value="@Model.Soyadi" class="rounded-input" />
+        <br />
+        <br />
+        <label>SicilNo:</label>
+        <br />
+        <input type="text" name="SicilNo" value="@Model.SicilNo" class="rounded-input" />
+        <br />
+        <br />
+        <label>Birim:</label>
+        <br />
+        <select name="PersonelBirimId" class="form-control">
+            <option value="@Model.PersonelBirimId" selected="selected">@Model.PersonelBirim.BirimAdi</option>
+            @foreach (var birim in ViewBag.BirimId)
+            {
+                if (birim.Value != Model.PersonelBirimId.ToString())
+                {
+                    <option value="@birim.Value">@birim.Text</option>
+                }
+            }
+        </select>
+        <br />
+       <label>Unvan:</label>
+        <br />
+        <select name="UnvanId" class="form-control">
+            <option value="@Model.UnvanId" selected="selected">@Model.Unvan.UnvanAdi</option>
+            @foreach (var unvan in ViewBag.UnvanId)
+            {
+                if (unvan.Value != Model.UnvanId.ToString())
+                {
+                    <option value="@unvan.Value">@unvan.Text</option>
+                }
+            }
+        </select>
+       <br />
+    </div>
+
+    <div class="form-group d-flex justify-content-center">
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+}
+
