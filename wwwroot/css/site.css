@@ -25,8 +25,8 @@ body {
     width: 5px;
 }
 
-/* Bullseye */
-#sidebar-nav li .bi-bullseye {
+/* Clipboard data */
+#sidebar-nav li .bi-clipboard-data {
     font-size: 13px;
     width: 21px;
 }
@@ -63,3 +63,11 @@ body {
     color: #50b5d7;
 }
 
+
+#common-data-nav li a {
+    color: #50b5d7;
+}
+
+#inventory-nav li a {
+    color: #50b5d7;
+}
